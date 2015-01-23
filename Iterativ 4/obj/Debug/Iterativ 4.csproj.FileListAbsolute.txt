@@ -1,0 +1,6 @@
+C:\Users\Martin\Desktop\SKOLSAKER\Iterativ 4\Iterativ 4\bin\Debug\Iterativ 4.exe.config
+C:\Users\Martin\Desktop\SKOLSAKER\Iterativ 4\Iterativ 4\bin\Debug\Iterativ 4.exe
+C:\Users\Martin\Desktop\SKOLSAKER\Iterativ 4\Iterativ 4\bin\Debug\Iterativ 4.pdb
+C:\Users\Martin\Desktop\SKOLSAKER\Iterativ 4\Iterativ 4\obj\Debug\Iterativ 4.csprojResolveAssemblyReference.cache
+C:\Users\Martin\Desktop\SKOLSAKER\Iterativ 4\Iterativ 4\obj\Debug\Iterativ 4.exe
+C:\Users\Martin\Desktop\SKOLSAKER\Iterativ 4\Iterativ 4\obj\Debug\Iterativ 4.pdb
