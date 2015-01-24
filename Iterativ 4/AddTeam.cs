@@ -11,6 +11,7 @@ namespace Iterativ_4
         public int maximumTeams = 2;
         public int UserInput;
         public string TeamName;
+        public bool TeamExist = false;
         public void addTeam()
         {
             
@@ -26,8 +27,7 @@ namespace Iterativ_4
                     TeamName = Console.ReadLine();
                     Console.WriteLine("Tack {0}, är nu ett registrerat lag!",TeamName);
                     Console.ResetColor();
-                    //Kod för att gå tillbaka till startmenyn
-                    //Kommer ev. köra den i huvudmenyn
+                    TeamExist = true;
                     
                 }
                 else //Om man matar in ett för stort värde 

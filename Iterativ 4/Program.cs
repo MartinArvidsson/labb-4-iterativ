@@ -41,12 +41,15 @@ namespace Iterativ_4
                 int UserChoice; //Körs detta
                 int CoursePick;
                 UserChoice = userInput("Väj ett alternativ:\n0: anmäl antal deltagare\n1:Registrera lag på gren\n2:Ge poäng!");
+                
+                
+                
                 if (UserChoice == 0)
                 {
                     Console.WriteLine("Ange antal lag som deltar (max 1 i dagsläget)");
                     addTeam.UserInput = int.Parse(Console.ReadLine());
                     addTeam.addTeam(); //Startar addTeam i addTeam-klassen.
-                    if(addTeam.TeamName != null)
+                    if (addTeam.TeamExist != false)
                     {
                         
                         UserChoice = userInput1("Väj ett alternativ:\n1:Registrera lag på gren\n2:Ge poäng!");
@@ -54,18 +57,23 @@ namespace Iterativ_4
                     }
 
                 }
-                if (UserChoice == 1)
+                
+                
+                
+                if (UserChoice == 1 && addTeam.TeamExist != false)
                 {
                     Console.Clear();
-                    CoursePick = coursePick("Registrera vilken gren som laget ska delta i!\n1: Barr\n2:Gymnastik\nAnnan sport som jag inte kan namn på\n");
+                    CoursePick = coursePick("Registrera vilken gren som laget ska delta i!\n1: Barr\n2:Gymnastik\n");
                     if (CoursePick == 1)
                     {
                         Console.WriteLine("Du har valt Barr!!");
+                        register.registerBarr();
                         //Kör registering av barr i Registercompetition liknande register teams
                     }
                     if (CoursePick == 2)
                     {
                         Console.WriteLine("Du har valt Gymnastik!");
+                        register.registerGymnastic();
                         //Kör registering av gymnastik i Registercompetition liknande Register teams
                     }
                     if(CoursePick > 2)
@@ -82,7 +90,14 @@ namespace Iterativ_4
                     }
                     
                 }
-                if (UserChoice == 2)
+                else
+                {
+                    Console.WriteLine("Inget lag är registrerat, kan inte anmäla gren!");
+                }
+
+
+
+                if (UserChoice == 2 && addTeam.TeamExist != false && register.competitionExist != false)
                 {
                     Console.WriteLine("Registrera poängen som laget fick i grenen!");
                     //Kör registering av registering av poäng i RegisterPoints. Mata in 3 värden, ge ut medelvärdet!
