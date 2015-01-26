@@ -8,17 +8,45 @@ namespace Iterativ_4
 {
     class Registercompetition
     {
+        AddTeam getTeam = new AddTeam();
         public bool competitionExist = false;
-        AddTeam addteam = new AddTeam();
-        
-        public void registerBarr()
+        private int register;
+
+        public void registerBarr() //Fråga om laget ska registreras på genen, svara ja eller nej enbart i dagsläget
         {
-            string teamName = addteam.TeamName;
-            Console.WriteLine("Det finns 1 aktivt lag i dagsläget vill du att {0} ska registeras på grenen?",teamName);
+            Console.WriteLine("Det finns {0} aktivt lag i dagsläget vill du att {1} ska registeras på grenen?\n1.Ja?\n2.Nej",getTeam.UserInput, getTeam.TeamName);
+            register = int.Parse(Console.ReadLine());
+            if(register == 1)
+            {
+                Console.WriteLine("{0} är nu anmält på grenen", getTeam.TeamName);
+            }
+            if(register == 2)
+            {
+                Console.WriteLine("Registeringen avbröts");
+            }
+            if(register <1 || register >2)
+            {
+                Console.WriteLine("inget korrekt alternativ angavs Programmet stängs av,");
+            }
+            competitionExist = true;
         }
         public void registerGymnastic()
         {
-
+            Console.WriteLine("Det finns {0} aktivt lag i dagsläget vill du att {1} ska registeras på grenen? \n1.Ja \n2.Nej",getTeam.UserInput, getTeam.TeamName);
+            register = int.Parse(Console.ReadLine());
+            if (register == 1)
+            {
+                Console.WriteLine("{0} är nu anmält på grenen", getTeam.TeamName);
+            }
+            if (register == 2)
+            {
+                Console.WriteLine("Registeringen avbröts");
+            }
+            if (register < 1 || register > 2)
+            {
+                Console.WriteLine("inget korrekt alternativ angavs");
+            }
+            competitionExist = true;
         }
 
     }

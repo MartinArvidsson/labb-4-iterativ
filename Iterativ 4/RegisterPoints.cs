@@ -10,7 +10,7 @@ namespace Iterativ_4
     {
         public void registerPoints()
         {
-
+            //Mata in 3 värden, beräkna medelvärdet och presentera det tillsammans med lagnamnet
         }
     }
 }

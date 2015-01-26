@@ -69,12 +69,24 @@ namespace Iterativ_4
                         Console.WriteLine("Du har valt Barr!!");
                         register.registerBarr();
                         //Kör registering av barr i Registercompetition liknande register teams
+                        if (register.competitionExist != false)
+                        {
+
+                            UserChoice = userInput1("Väj ett alternativ:\n2:Ge poäng!");
+                            Console.Clear();
+                        }
                     }
                     if (CoursePick == 2)
                     {
                         Console.WriteLine("Du har valt Gymnastik!");
                         register.registerGymnastic();
                         //Kör registering av gymnastik i Registercompetition liknande Register teams
+                        if (register.competitionExist != false)
+                        {
+
+                            UserChoice = userInput1("Väj ett alternativ:\n2:Ge poäng!");
+                            Console.Clear();
+                        }
                     }
                     if(CoursePick > 2)
                     {
@@ -92,7 +104,7 @@ namespace Iterativ_4
                 }
                 else
                 {
-                    Console.WriteLine("Inget lag är registrerat, kan inte anmäla gren!");
+                    Console.WriteLine("Kan inte utföra kommandot, antingen saknas ett lag eller är ingen gren anmäld");
                 }
 
 
@@ -101,9 +113,10 @@ namespace Iterativ_4
                 {
                     Console.WriteLine("Registrera poängen som laget fick i grenen!");
                     //Kör registering av registering av poäng i RegisterPoints. Mata in 3 värden, ge ut medelvärdet!
+                    points.registerPoints();
 
                 }
-                if (UserChoice > 2)
+                if (UserChoice > 2 || UserChoice < 2)
                 {
                     Console.BackgroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("Finns inget commando på det numret stänger av");
@@ -125,7 +138,7 @@ namespace Iterativ_4
                 catch //Men om man matar in något annat en en siffra
                 {
                     Console.BackgroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine("Error inget nummer angavs\n");
+                    Console.WriteLine("Error inget nummer angavs");
                     Console.ResetColor();
                 }
             }
@@ -143,7 +156,7 @@ namespace Iterativ_4
                 catch //Men om man matar in något annat en en siffra
                 {
                     Console.BackgroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine("Error inget nummer angavs\n");
+                    Console.WriteLine("Error inget nummer angavs");
                     Console.ResetColor();
                 }
             }
@@ -161,7 +174,7 @@ namespace Iterativ_4
                 catch //Men om man matar in något annat en en siffra
                 {
                     Console.BackgroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine("Error inget nummer angavs\n");
+                    Console.WriteLine("Error inget nummer angavs");
                     Console.ResetColor();
                 }
             }
