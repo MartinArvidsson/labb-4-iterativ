@@ -10,37 +10,50 @@ namespace Iterativ_4
     {
         public int maximumTeams = 2;
         public int UserInput;
-        public string TeamName;
+        public static string TeamName;
+        public static int RegistredTeams;
         public bool TeamExist = false;
         public void addTeam()
         {
-            
-            if(UserInput > 0)
-            {
-
-                if (UserInput < maximumTeams) //Kollar om vad användaren matar in är mindre än maxantalet isåfall gör nedanstående
+            try
+            { 
+                if(UserInput > 0)
                 {
-                    Console.BackgroundColor = ConsoleColor.DarkGreen;
-                    Console.WriteLine("Tack! {0} Lag är nu registrerade", UserInput);
-                    Console.ResetColor();
-                    Console.WriteLine("Var vänlig och ange lagnamn");
-                    TeamName = Console.ReadLine();
-                    Console.WriteLine("Tack {0}, är nu ett registrerat lag!",TeamName);
-                    Console.ResetColor();
-                    TeamExist = true;
+
+                    if (UserInput < maximumTeams) 
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkGreen;
+                        Console.WriteLine("Tack! {0} Lag är nu registrerade", UserInput);
+                        RegistredTeams = UserInput;
+                        Console.ResetColor();
+                        if (TeamName == null)
+                        {
+                            Console.WriteLine("Var vänlig och ange lagnamn");
+                            TeamName = Console.ReadLine();
+                        }
+                        Console.WriteLine("Tack {0}, är nu ett registrerat lag!",TeamName);
+                        Console.ResetColor();
+                        TeamExist = true;
                     
+                    }
+                    else  
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("Fel! 1  Lag enbart! Programmet stängs nu av!");
+                        Console.ResetColor();
+                    }
                 }
-                else //Om man matar in ett för stort värde 
+                else 
                 {
                     Console.BackgroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine("Fel! 1  Lag enbart! Programmet stängs nu av!");
+                    Console.WriteLine("Fel! mer än 0 Lag måste delta! Programmet stängs nu av!");
                     Console.ResetColor();
                 }
             }
-            else //Om man matar in ett för litet värde 
+            catch
             {
                 Console.BackgroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("Fel! mer än 0 Lag måste delta! Programmet stängs nu av!");
+                Console.WriteLine("Error inget nummer angavs");
                 Console.ResetColor();
             }
         }

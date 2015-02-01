@@ -8,46 +8,79 @@ namespace Iterativ_4
 {
     class Registercompetition
     {
-        AddTeam getTeam = new AddTeam();
+        //AddTeam getTeam = new AddTeam();
         public bool competitionExist = false;
-        private int register;
+        public int register = 0;
+        public static string CBarr;
+        public static string CGymnastik;
+        public static bool BarrExist = false;
+        public static bool GymnExist = false;
 
-        public void registerBarr() //Fråga om laget ska registreras på genen, svara ja eller nej enbart i dagsläget
+        public void registerBarr() 
         {
-            Console.WriteLine("Det finns {0} aktivt lag i dagsläget vill du att {1} ska registeras på grenen?\n1.Ja?\n2.Nej",getTeam.UserInput, getTeam.TeamName);
-            register = int.Parse(Console.ReadLine());
-            if(register == 1)
+            try
             {
-                Console.WriteLine("{0} är nu anmält på grenen", getTeam.TeamName);
+                Console.WriteLine("Det finns {0} aktivt lag i dagsläget vill du att {1} ska registeras på grenen?\n1.Ja?\n2.Nej", AddTeam.RegistredTeams, AddTeam.TeamName);
+                if(register == 0)
+                { 
+                    register = int.Parse(Console.ReadLine());
+                }
+                if (register == 1)
+                {
+                    Console.WriteLine("{0} är nu anmält på grenen barr", AddTeam.TeamName);
+                    CBarr = "barr";
+                    competitionExist = true;
+                    BarrExist = true;
+                }
+                if (register == 2)
+                {
+                    Console.WriteLine("Registeringen avbröts");
+                }
+                if (register < 1 || register > 2)
+                {
+                    Console.WriteLine("inget korrekt alternativ angavs Programmet stängs av");
+                }
+                
             }
-            if(register == 2)
+            catch
             {
-                Console.WriteLine("Registeringen avbröts");
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("Error inget nummer angavs");
+                Console.ResetColor();
             }
-            if(register <1 || register >2)
-            {
-                Console.WriteLine("inget korrekt alternativ angavs Programmet stängs av,");
-            }
-            competitionExist = true;
         }
         public void registerGymnastic()
         {
-            Console.WriteLine("Det finns {0} aktivt lag i dagsläget vill du att {1} ska registeras på grenen? \n1.Ja \n2.Nej",getTeam.UserInput, getTeam.TeamName);
-            register = int.Parse(Console.ReadLine());
-            if (register == 1)
+            try
             {
-                Console.WriteLine("{0} är nu anmält på grenen", getTeam.TeamName);
+                Console.WriteLine("Det finns {0} aktivt lag i dagsläget vill du att {1} ska registeras på grenen? \n1.Ja \n2.Nej", AddTeam.RegistredTeams, AddTeam.TeamName);
+                if (register == 0)
+                {
+                    register = int.Parse(Console.ReadLine());
+                }
+                if (register == 1)
+                {
+                    Console.WriteLine("{0} är nu anmält på grenen Gymnastik", AddTeam.TeamName);
+                    CGymnastik = "gymnastik";
+                    competitionExist = true;
+                    GymnExist = true;
+                }
+                if (register == 2)
+                {
+                    Console.WriteLine("Registeringen avbröts");
+                }
+                if (register < 1 || register > 2)
+                {
+                    Console.WriteLine("inget korrekt alternativ angavs");
+                }
+                
             }
-            if (register == 2)
+            catch
             {
-                Console.WriteLine("Registeringen avbröts");
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("Error inget nummer angavs");
+                Console.ResetColor();
             }
-            if (register < 1 || register > 2)
-            {
-                Console.WriteLine("inget korrekt alternativ angavs");
-            }
-            competitionExist = true;
         }
-
     }
 }

@@ -11,11 +11,9 @@ namespace Iterativ_4
         static void Main(string[] args)
         {
             {
-                //Analyserat användningsfall, se laborationspappret labb 3 för mer specifikationer
-                //Integrationtests integrationtest = new Integrationtests();
-                //integrationtest.integrationstester();
-
-                //Test.Run(); //Startar testklassen och kör testerna
+                AddTeamTest.Run();
+                RegisterCompTest.Run();
+                RegisterPointsTest.Run();
 
                 Console.WriteLine("         ============================================================");
                 Console.WriteLine("         |                    Hej och välkommen!                    |");
@@ -24,12 +22,13 @@ namespace Iterativ_4
                 Console.WriteLine("         ============================================================\n");
                 
                 logon(false);
+                
             }
         }
         public static void logon(bool loggedin)
         {
-            login login = new login(); //Startar en ny loginklass
-            AddTeam addTeam = new AddTeam(); //Startar en ny AddUser klass
+            login login = new login(); 
+            AddTeam addTeam = new AddTeam(); 
             Registercompetition register = new Registercompetition();
             RegisterPoints points = new RegisterPoints();
             
@@ -111,7 +110,6 @@ namespace Iterativ_4
 
                 if (UserChoice == 2 && addTeam.TeamExist != false && register.competitionExist != false)
                 {
-                    Console.WriteLine("Registrera poängen som laget fick i grenen!");
                     //Kör registering av registering av poäng i RegisterPoints. Mata in 3 värden, ge ut medelvärdet!
                     points.registerPoints();
 
